@@ -26,8 +26,8 @@ function addRecordToSheets(vars) {
     for (let i = 0; i < wssids.length - 1; i++) {
         var wssid = wssids[i][0];
         if (sid == wssid) {
-        sidFound = true;
-        break;
+            sidFound = true;
+            break;
         }
         ite += 1;
     }
@@ -40,25 +40,25 @@ function addRecordToSheets(vars) {
     let staffCell = ws.getRange('K' + ite);
     if (sidFound) {
         if (tbbCell.getValue() == "") {
-        tbbCell.setValue(tbb);
+            tbbCell.setValue(tbb);
         }
         if (internCell.getValue() == "") {
-        internCell.setValue(intern);
+            internCell.setValue(intern);
         }
         if (scholarshipCell.getValue() == "") {
-        scholarshipCell.setValue(scholarship);
+            scholarshipCell.setValue(scholarship);
         }
         if (emergencyCell.getValue() == "") {
-        emergencyCell.setValue(emergency);
+            emergencyCell.setValue(emergency);
         }
         if (undocuScholarsCell.getValue() == "") {
-        undocuScholarsCell.setValue(undocuScholars);
+            undocuScholarsCell.setValue(undocuScholars);
         }
         if (firebaughCell.getValue() == "") {
-        firebaughCell.setValue(firebaugh);
+            firebaughCell.setValue(firebaugh);
         }
         if (staffCell.getValue() == "") {
-        staffCell.setValue(staff);
+            staffCell.setValue(staff);
         }
     } else {
         throw Error("sid does not exists");
