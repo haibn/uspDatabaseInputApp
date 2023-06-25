@@ -1,10 +1,15 @@
 function doGet(e){
     return HtmlService.createTemplateFromFile('index')
       .evaluate();
-  }
+}
   
 function include(filename){
     return HtmlService.createHtmlOutputFromFile(filename).getContent();
+}
+
+function isInt(value) {
+    var x = parseFloat(value);
+    return !isNaN(value) && (x | 0) === x;
 }
 
 function addRecordToSheets(vars) {
@@ -39,26 +44,26 @@ function addRecordToSheets(vars) {
     let firebaughCell = ws.getRange('J' + ite);
     let staffCell = ws.getRange('K' + ite);
     if (sidFound) {
-        if (tbbCell.getValue() == "") {
-            tbbCell.setValue(tbb);
+        if (tbbCell.getValue() == "" || (tbbCell.getValue() != tbb && isInt(tbb))) {
+          tbbCell.setValue(tbb);
         }
-        if (internCell.getValue() == "") {
-            internCell.setValue(intern);
+        if (internCell.getValue() == "" || (internCell.getValue() != intern && isInt(intern))) {
+          internCell.setValue(intern);
         }
-        if (scholarshipCell.getValue() == "") {
-            scholarshipCell.setValue(scholarship);
+        if (scholarshipCell.getValue() == "" || (scholarshipCell.getValue() != scholarship && isInt(scholarship))) {
+          scholarshipCell.setValue(scholarship);
         }
-        if (emergencyCell.getValue() == "") {
-            emergencyCell.setValue(emergency);
+        if (emergencyCell.getValue() == "" || (emergencyCell.getValue() != emergency && isInt(emergency))) {
+          emergencyCell.setValue(emergency);
         }
-        if (undocuScholarsCell.getValue() == "") {
-            undocuScholarsCell.setValue(undocuScholars);
+        if (undocuScholarsCell.getValue() == "" || (undocuScholarsCell.getValue() != undocuScholars && isInt(undocuScholars))) {
+          undocuScholarsCell.setValue(undocuScholars);
         }
-        if (firebaughCell.getValue() == "") {
-            firebaughCell.setValue(firebaugh);
+        if (firebaughCell.getValue() == "" || (firebaughCell.getValue() != firebaugh && isInt(firebaugh))) {
+          firebaughCell.setValue(firebaugh);
         }
-        if (staffCell.getValue() == "") {
-            staffCell.setValue(staff);
+        if (staffCell.getValue() == "" || (staffCell.getValue() != staff &  staff != "")) {
+          staffCell.setValue(staff);
         }
     } else {
         throw Error("sid does not exists");
