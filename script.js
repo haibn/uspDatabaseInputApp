@@ -1,3 +1,4 @@
+// Function used to switch between submission types.
 function submissionType() {
   var type = document.getElementById("typeOfSubmission");
   var awards = document.getElementById("awards");
@@ -15,19 +16,21 @@ function submissionType() {
   }
 }
 
+// Sets up the initial state of the web app when the DOM is loaded.
 document.addEventListener("DOMContentLoaded", function(event) {
   var awards = document.getElementById("awards");
   awards.style.display = "block";
 });
 
+// Helper function used to alert the user if the inputted SID is not found in the database (google sheets)
 function noSid() {
   alert("SID not found.");
 }
 
+// Function used to add the given infomation inputted by the user on the web app to google sheets.
+// This function is triggered when the "add" button is clicked.
 function addRecord() {
   let typeOfSubmission = document.getElementById("typeOfSubmission").value;
-  let awardType = 'n/a';
-  let amount = 'n/a';
   let vars = {
     sid: document.getElementById("sid").value,
     tbb: "",
@@ -38,11 +41,9 @@ function addRecord() {
     firebaugh: "",
     staff: ""
   }
-  console.log(vars.sid);
-  console.log(typeOfSubmission);
   if (typeOfSubmission == "awards") {
-    awardType = document.getElementById("typeOfAward").value;
-    amount = document.getElementById("amount").value;
+    let awardType = document.getElementById("typeOfAward").value;
+    let amount = document.getElementById("amount").value;
     for (var key in vars) {
       if (awardType == key) {
         vars[key] = amount;

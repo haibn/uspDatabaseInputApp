@@ -1,17 +1,21 @@
+// Gets the main html file and runs it
 function doGet(e){
-    return HtmlService.createTemplateFromFile('index')
-      .evaluate();
+    return HtmlService.createTemplateFromFile('index').evaluate();
 }
-  
+
+// Helper function used to link multiple html files
 function include(filename){
     return HtmlService.createHtmlOutputFromFile(filename).getContent();
 }
 
+// Helper function used to check if value is an Integer
 function isInt(value) {
     var x = parseFloat(value);
     return !isNaN(value) && (x | 0) === x;
 }
 
+// Function used to add the given infomation inputted by the user on the web app to google sheets.
+// This function is called by the addRecord() function in js.html when the "add" button is clicked.
 function addRecordToSheets(vars) {
     let sid = vars.sid;
     let tbb = vars.tbb;
@@ -45,25 +49,25 @@ function addRecordToSheets(vars) {
     let staffCell = ws.getRange('K' + ite);
     if (sidFound) {
         if (tbbCell.getValue() == "" || (tbbCell.getValue() != tbb && isInt(tbb))) {
-          tbbCell.setValue(tbb);
+            tbbCell.setValue(tbb);
         }
         if (internCell.getValue() == "" || (internCell.getValue() != intern && isInt(intern))) {
-          internCell.setValue(intern);
+            internCell.setValue(intern);
         }
         if (scholarshipCell.getValue() == "" || (scholarshipCell.getValue() != scholarship && isInt(scholarship))) {
-          scholarshipCell.setValue(scholarship);
+            scholarshipCell.setValue(scholarship);
         }
         if (emergencyCell.getValue() == "" || (emergencyCell.getValue() != emergency && isInt(emergency))) {
-          emergencyCell.setValue(emergency);
+            emergencyCell.setValue(emergency);
         }
         if (undocuScholarsCell.getValue() == "" || (undocuScholarsCell.getValue() != undocuScholars && isInt(undocuScholars))) {
-          undocuScholarsCell.setValue(undocuScholars);
+            undocuScholarsCell.setValue(undocuScholars);
         }
         if (firebaughCell.getValue() == "" || (firebaughCell.getValue() != firebaugh && isInt(firebaugh))) {
-          firebaughCell.setValue(firebaugh);
+            firebaughCell.setValue(firebaugh);
         }
         if (staffCell.getValue() == "" || (staffCell.getValue() != staff &  staff != "")) {
-          staffCell.setValue(staff);
+            staffCell.setValue(staff);
         }
     } else {
         throw Error("sid does not exists");
