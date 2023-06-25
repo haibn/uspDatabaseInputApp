@@ -9,86 +9,61 @@
 </head>
 <body>
   <script src="script.js"></script>
-    <div class="form">
-        <!-- <div class="title">Welcome</div> -->
-        <div class="subtitle"> new record</div>
+  <div class="form">
+    <div class="title"> new record</div>
 
-        <div class="input-container ic1">
-          <input id="sid" class="input" type="text" placeholder=" " />
-          <div class="cut"></div>
-          <label for="sid" class="placeholder">student id</label>
-        </div>
-
-        <div class = "subtitle">type of submission</div>
-        <div class="input-container ic2">
-          <div class="box">
-            <select id="typeOfSubmission" class="input" onchange="submissionType()">
-              <option>awards</option>
-              <option>appointments</option>
-            </select>
-          </div>
-        </div>
-
-        <div id="awards">
-          <div class = "subtitle">award type</div>
-          <div class="input-container ic2">
-            <div class="box">
-              <select class="input">
-                <option>emergency grant</option>
-                <option>usp intern</option>
-                <option>tbb</option>
-                <option>undocuScholars</option>
-                <option>firebaugh</option>
-              </select>
-            </div>
-          </div>
-          
-          <div class="input-container ic2">
-            <input id="lastname" class="input" type="text" placeholder=" " />
-            <div class="cut"></div>
-            <label for="lastname" class="placeholder">award amount</label>
-          </div>
-        </div>
-
-        <div id="appointments">
-          <div class = "subtitle">usp staff</div>
-          <div class="input-container ic2">
-            <div class="box">
-              <select class="input">
-                <option>Deisy</option>
-                <option>Keziah</option>
-                <option>Camille</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <button type="text" class="submit">submit</button>
+    <div class="input-container ic1">
+      <input id="sid" class="input" type="text" placeholder=" " />
+      <div class="cut"></div>
+      <label for="sid" class="placeholder">student id</label>
     </div>
-    
-    <!-- <select id="form-selector">
-      <option value="_" selected disabled>pick one !</option>
-      <option value="Input">Input</option>
-      <option value="Output">Output</option>
-      <option value="Summary">Summary</option>
-    </select>
-    
-    <div id="my-forms">
-      <form name="Input">
-        <h4> form Input</h4>
-      </form>
-      <form name="Output">
-        <h4> form Output</h4>
-      </form>
-      <form name="Summary">
-        <h4> form Summary</h4>
-      </form>
-    </div> -->
 
-    <!-- <script>
-      const formSelect = document.getElementById('form-selector');
-      const myForms    = document.getElementById('my-forms');
-      formSelect.oninput=()=>{ myForms.className = `f-${formSelect.value}` }
-    </script> -->
+    <div class = "subtitle">type of submission:</div>
+    <div class="input-container ic2">
+      <div class="box">
+        <select id="typeOfSubmission" onchange="submissionType()">
+          <option>awards</option>
+          <option>appointments</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="awards">
+      <div class = "subtitle">award type:</div>
+      <div class="input-container ic2">
+        <div class="box">
+          <select id="typeOfAward">
+            <option>emergency</option>
+            <option>intern</option>
+            <option>scholarship</option>
+            <option>tbb</option>
+            <option>undocuScholars</option>
+            <option>firebaugh</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="input-container ic3">
+        <input id="amount" class="input" type="text" placeholder=" " />
+        <div class="cut"></div>
+        <label for="amount" class="placeholder">amount</label>
+      </div>
+    </div>
+
+    <div id="appointments">
+      <div class = "subtitle">usp staff:</div>
+      <div class="input-container ic2">
+        <div class="box">
+          <select id="staff">
+            <option>Deisy</option>
+            <option>Keziah</option>
+            <option>Camille</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <button id="add" type="text" class="submit" onclick="addRecord()">add</button>
+  </div>
 </body>
 </html>
