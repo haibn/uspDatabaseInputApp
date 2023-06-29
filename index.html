@@ -9,8 +9,66 @@
 </head>
 <body>
   <script src="script.js"></script>
-  <div class="form">
-    <div class="title"> new record</div>
+  <div id="summary">
+    <h1>Student Information</h1>
+    <ul>
+      <li><b>Student name:</b> <p id="summName"></p></li>
+      <li><b>Student ID (SID):</b> <p id="summSid"></p></li>
+      <li><b>University ID (UID):</b> <p id="summUid"></p></li>
+      <li><b>USP Internship:</b> <p id="summInternBox">----------------</p> <b>&nbsp;&nbsp;&nbsp;Total Awards:</b> <p id="summIntern"></p></li>
+      <li><b>TBB Fellowship:</b> <p id="summTbbBox">----------------</p> <b>Total Awards:</b> <p id="summTbb"></p></li>
+      <li><b>USP Emergency Grant:</b> <p id="summEmergencyBox">----------------</p> <b>Total Awards:</b> <p id="summEmergency"></p></li>
+      <li><b>USP Scholarship:</b> <p id="summScholarshipBox">----------------</p> <b>Total Awards:</b> <p id="summScholarship"></p></li>
+      <li><b>UndocuSchoalrs:</b> <p id="summUndocuBox">----------------</p> <b>Total Awards:</b> <p id="summUndocu"></p></li>
+      <li><b>Firebaugh Scholars:</b> <p id="summFirebaughBox">----------------</p> <b>Total Awards:</b> <p id="summFirebaugh"></p></li>
+      <li><b>Last met with USP Councelor:</b> <p id="summStaff"></p></li>
+    </ul>
+    <button id="backBtn" type="text" class="back" onclick="back()">Back</button>
+  </div>
+
+  <div id="home" class="form">
+    <button id="updateBtn" type="text" class="homeBtn" onclick="updateForm()">Update Student Information</button>
+    <button id="searchBtn" type="text" class="homeBtn" onclick="searchForm()">Search Student Information</button>
+  </div>
+
+  <div id="search" class="form">
+    <button id="backBtn" type="text" class="back" onclick="back()">Back</button>
+
+    <div class = "subtitle">search by:</div>
+
+    <div class="input-container ic2">
+      <div class="box">
+        <select id="searchType" onchange="searchType()">
+          <option>sid</option>
+          <option>uid</option>
+          <option>email</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="sidInput" class="input-container ic1">
+      <input id="sidSearch" class="input" type="text" placeholder=" " />
+      <div class="cut"></div>
+      <label for="sidSearch" class="placeholder">sid</label>
+    </div>
+    
+    <div id="uidInput" class="input-container ic1">
+      <input id="uidSearch" class="input" type="text" placeholder=" " />
+      <div class="cut"></div>
+      <label for="uidSearch" class="placeholder">uid</label>
+    </div>
+
+    <div id="emailInput" class="input-container ic1">
+      <input id="emailSearch" class="input" type="text" placeholder=" " />
+      <div class="cut"></div>
+      <label for="emailSearch" class="placeholder">email</label>
+    </div>
+
+    <button id="searchBtn2" type="text" class="submit" onclick="searchRecord()">search</button>
+  </div>
+
+  <div id="update" class="form">
+    <button id="backBtn" type="text" class="back" onclick="back()">Back</button>
 
     <div class="input-container ic1">
       <input id="sid" class="input" type="text" placeholder=" " />
@@ -44,7 +102,7 @@
       </div>
       
       <div class="input-container ic3">
-        <input id="amount" class="input" type="text" placeholder=" " />
+        <input id="amount" class="input" type="number" placeholder=" " />
         <div class="cut"></div>
         <label for="amount" class="placeholder">amount</label>
       </div>
